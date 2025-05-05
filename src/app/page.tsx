@@ -1,8 +1,18 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
+import { useMCPStore } from '@/store/mcpStore';
 import styles from './page.module.css';
 
 export default function Home() {
+  const { servers } = useMCPStore();
+  
+  // Calculate stats
+  const totalServers = servers.length;
+  const activeServers = servers.filter(server => server.isActive).length;
+  const totalTools = servers.reduce((sum, server) => sum + server.tools.length, 0);
+
   return (
     <div className={styles.dashboard}>
       <header className={styles.header}>
@@ -32,17 +42,17 @@ export default function Home() {
         <div className={styles.statsGrid}>
           <div className={styles.statCard}>
             <h3>Total Servers</h3>
-            <div className={styles.statValue}>0</div>
+            <div className={styles.statValue}>{totalServers}</div>
           </div>
           
           <div className={styles.statCard}>
             <h3>Active Servers</h3>
-            <div className={styles.statValue}>0</div>
+            <div className={styles.statValue}>{activeServers}</div>
           </div>
           
           <div className={styles.statCard}>
             <h3>Total Tools</h3>
-            <div className={styles.statValue}>0</div>
+            <div className={styles.statValue}>{totalTools}</div>
           </div>
         </div>
       </div>
