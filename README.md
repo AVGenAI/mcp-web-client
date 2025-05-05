@@ -77,23 +77,37 @@ yarn dev
 ```
 src/
 ├── app/                    # Next.js App Router
-│   ├── page.tsx           # Dashboard/home page
-│   ├── layout.tsx         # Main layout with sidebar
+│   ├── page.tsx           # Dashboard/home page (client component)
+│   ├── layout.tsx         # Root layout (server component)
 │   └── servers/           # Server management pages
-│       ├── page.tsx       # Server list page
-│       ├── add/           # Add server page
-│       └── [id]/          # Server detail page
+│       ├── page.tsx       # Server list page (client component)
+│       ├── add/           # Add server page (client component)
+│       └── [id]/          # Server detail page (client component)
 ├── components/            # Reusable components
-│   └── Sidebar.tsx        # Navigation sidebar
+│   ├── Sidebar.tsx        # Navigation sidebar (client component)
+│   └── ClientLayout.tsx   # Layout wrapper for client components
 ├── store/                 # State management
 │   └── mcpStore.ts        # Zustand store for MCP data
 └── types/                 # TypeScript type definitions
     └── mcp.ts             # MCP type definitions
 ```
 
+## Client vs Server Components
+
+This project follows Next.js App Router patterns:
+
+- Server Components: Used for static parts and metadata (default in App Router)
+- Client Components: Used for interactive elements and state management (marked with "use client" directive)
+
+Components that use hooks, event handlers, or browser APIs must be client components. We've structured the app with:
+
+- A server component root layout that includes metadata
+- A client component wrapper (`ClientLayout`) that includes interactive elements
+- Client components for all pages that need to access state
+
 ## Technologies Used
 
-- [Next.js](https://nextjs.org/) - React framework
+- [Next.js](https://nextjs.org/) - React framework with App Router
 - [React](https://reactjs.org/) - UI library
 - [TypeScript](https://www.typescriptlang.org/) - Type checking
 - [Zustand](https://github.com/pmndrs/zustand) - State management
