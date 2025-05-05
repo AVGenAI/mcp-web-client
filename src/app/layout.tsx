@@ -1,11 +1,15 @@
+"use client";
+
 import type { Metadata } from 'next';
 import { Sidebar } from '@/components/Sidebar';
 import './globals.css';
 
-export const metadata: Metadata = {
-  title: 'MCP Web Client',
-  description: 'A web client for managing MCP servers and tools',
-};
+// This metadata can't be used in a client component, so it should be moved to a separate server component
+// or can be removed if not essential
+// export const metadata: Metadata = {
+//   title: 'MCP Web Client',
+//   description: 'A web client for managing MCP servers and tools',
+// };
 
 export default function RootLayout({
   children,
