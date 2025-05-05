@@ -1,0 +1,161 @@
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  padding: 0 1.5rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.navigation {
+  padding: 1.5rem;
+}
+
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  display: block;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s;
+}
+
+.navItem:hover {
+  color: #fff;
+}
+
+.serverList {
+  flex: 1;
+  padding: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.serverListHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.serverListHeader h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.addButton {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.addButton:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.serverItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.serverItem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-left: -0.5rem;
+}
+
+.online::before {
+  background-color: var(--success-color);
+}
+
+.offline::before {
+  background-color: var(--text-secondary);
+}
+
+.serverItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.serverName {
+  font-weight: 500;
+}
+
+.toolCount {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.noServers {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 1.5rem 0;
+}
+
+.addFirstButton {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.addFirstButton:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
